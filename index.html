@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en ca">
+  <head>
+    <meta charset="UFT-8">
+    <title> Pingu Eyes </title>
+    <style>
+      *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1000px;
+        background-color: #F44;
+      }
+      
+      .eye-wrapper{
+        margin-left: -300px;
+        margin-top: -110px;
+        display: flex;
+      }
+      
+      .eye-background-1{
+        width: 100px;
+        height: 100px;
+        display: block;
+        background: #A1ACAF;
+        border-radius: 50%;
+        margin: 0px 100px;
+        box-shadow: inset 0px -16px 8px 0px #D6E5E7, inset 0px -16px 8px 1px #D6E5E7;
+        -moz-box-shadow: inset 0px -16px 8px 0px #D6E5E7, inset 0px -16px 8px 1px #D6E5E7;
+        position: absolute;
+        z-index: -1;
+      }
+      
+      .eye-background-2{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        display: block;
+        background: #A1ACAF;
+        border-radius: 50%;
+        margin: 0px -200px;
+        box-shadow: inset 0px -16px 8px 0px #D6E5E7, inset 0px -16px 8px 1px #D6E5E7;
+        -moz-box-shadow: inset 0px -16px 8px 0px #D6E5E7, inset 0px -16px 8px 1px #D6E5E7;
+        z-index: -1;
+      }
+      
+      .eye-wrapper .balls{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        display: block;
+        border-radius: 50%;
+        margin: 0px 100px;
+      }
+      
+      .eye-wrapper .balls::before{
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 34px;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #010000;
+      }
+      
+      img{
+        position: absolute;
+        z-index: -2;
+      }
+    
+    </style>
+  </head>
+  <body>
+    <div class="eye-wrapper">
+      <div class="balls"></div>
+      <div class="balls"></div>
+      <div class="eye-background-1"></div>
+      <div class="eye-background-2"></div>
+    </div>
+    
+    <img src="pingu-meme.jpg">
+    
+    <script>
+      document.querySelector("body").addEventListener("mousemove", animate);
+      
+      function animate() {
+        let wrapper = document.querySelectorAll(".balls");
+        wrapper.forEach((balls) =>{
+          let x = balls.getBoundingClientRect().left + balls.clientWidth / 2;
+          let y = balls.getBoundingClientRect().top + balls.clientHeight / 2;
+          
+          let radian = Math.atan2(event.pageX - x, event.pageY - y);
+          let rotate = radian * (180 / Math.PI) * -1 + 270;
+          balls.style.transform = `rotate(${rotate}deg)`;
+        });
+      }
+      
+    
+    </script>
+    
+    
+    
+  </body>
+</html>
