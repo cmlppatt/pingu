@@ -19,12 +19,12 @@
       }
       
       .eye-wrapper{
-        margin-left: -300px;
+        margin-left: 0px;
         margin-top: -110px;
         display: flex;
       }
       
-      .eye-background-1{
+      .eye-background{
         width: 100px;
         height: 100px;
         display: block;
@@ -37,17 +37,12 @@
         z-index: -1;
       }
       
-      .eye-background-2{
-        position: relative;
-        width: 100px;
-        height: 100px;
-        display: block;
-        background: #A1ACAF;
-        border-radius: 50%;
-        margin: 0px -200px;
-        box-shadow: inset 0px -16px 8px 0px #D6E5E7, inset 0px -16px 8px 1px #D6E5E7;
-        -moz-box-shadow: inset 0px -16px 8px 0px #D6E5E7, inset 0px -16px 8px 1px #D6E5E7;
-        z-index: -1;
+      #right-eye-white{
+        margin: 0px 400px;
+      }
+      
+      #right-eye-red{
+        margin: 45px 445px;
       }
       
       .eye-wrapper .balls{
@@ -71,9 +66,20 @@
         background: #010000;
       }
       
+      .red-dot{
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #720F1C;
+        z-index: 1;
+        margin-left: 145px;
+        margin-top: 45px;
+      }
+      
       img{
         position: absolute;
-        z-index: -2;
+        z-index: -3;
       }
     
     </style>
@@ -82,11 +88,13 @@
     <div class="eye-wrapper">
       <div class="balls"></div>
       <div class="balls"></div>
-      <div class="eye-background-1"></div>
-      <div class="eye-background-2"></div>
+      <div class="red-dot"></div>
+      <div class="red-dot" id="right-eye-red"></div>
+      <div class="eye-background"></div>
+      <div class="eye-background" id="right-eye-white"></div>
     </div>
     
-    <img src="pingu-meme.jpg">
+    <img src="pingu-meme.jpg" alt="Pingu the penguin meme, lit from below.">
     
     <script>
       document.querySelector("body").addEventListener("mousemove", animate);
